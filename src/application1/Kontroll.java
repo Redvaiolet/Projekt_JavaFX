@@ -308,12 +308,6 @@ public class Kontroll {
 	        //shfaq totalin ne TextField te Arketarit
 	        faturaTotale.setText(String.format("%.2f $", totali)); 
 	        
-	        
-	        //thirrja e metodes per printim te fatures ne BillNo.txt
-	        printoFature(produkteNeFature, totali);
-	        
-
-	        
 	        //njoftim qe fatura u printua
 	        printimAlert(AlertType.INFORMATION, "Fatura u Printua", "Totali: " + String.format("%.2f $", totali)); 
   
@@ -326,59 +320,8 @@ public class Kontroll {
 	        faturaTotale.clear();
 	        
 	    }
-	    
-	    
-	   //metoda per te prinutar faturen
-	    private void printoFature(ObservableList<FatureProdukt> faturaAktuale, double totaliFatures) {
-	        //emri i file ku do ruhet fatura
-	        String emriFile = "BillNo.txt"; 
 
-	        //perdorim try-with-resources qe te sigurohesh qe Writer-at mbyllen automatikisht
-	        //ska 'true' nga FileWriter per te mbishkruar file-in
-	        try (FileWriter fw = new FileWriter(emriFile); 
-	             BufferedWriter bw = new BufferedWriter(fw)) {
-
-	            //shtojme nje header per daten dhe oren per cdo fature
-	            LocalDateTime now = LocalDateTime.now();
-	            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	            bw.write("========= FATURE ===========");
-	            bw.newLine();
-	            bw.write("Data: " + now.format(formatter));
-	            bw.newLine();
-	            bw.write("Arketari: " + (emriArketaritAktual != null ? emriArketaritAktual : "Admin")); 
-	            bw.newLine();
-	            bw.write("-----------------------------------------");
-	            bw.newLine();
-
-	            //shkruaj header-in e kolonave
-	            bw.write("Produkti\t\tSasia\tCmimi"); //perdorim tab per ndarje
-	            bw.newLine();
-	            bw.write("-----------------------------------------");
-	            bw.newLine();
-
-	            //shkruaj cdo produkt nga fatura
-	            for (FatureProdukt produkt : faturaAktuale) {
-	                //krijo nje rresht per produktin                  %-20s = string me gjatesi 20,align majtas
-	                String rreshti = String.format("%-20s\t%d\t%s",produkt.getEmri(),produkt.getSasia(),produkt.getCmimiShitjes());
-	                bw.write(rreshti);
-	                bw.newLine();
-	            }
-
-	            //shkruaj ndaresin para totalit
-	            bw.write("-----------------------------------------");
-	            bw.newLine();
-
-	            //shkruaj totalin e formatuar
-	            String totaliStr = String.format("Totali:\t\t\t%.2f $", totaliFatures);
-	            bw.write(totaliStr);
-	            bw.newLine();
-	           
-	        } catch (IOException e) {//kap gabimet nese ka dhe i shfaq
-	            System.err.println("Gabim gjate shkrimit te fatures ne file: " + e.getMessage());
-	            e.printStackTrace(); 
-	        }
-	    }
-	    
+	
 	    //metode per ty kther ne Log In 
 	    public void ktheuLogIn() {
 	        try {
