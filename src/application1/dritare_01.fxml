@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application1.Kontroll">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="621.0" layoutX="-4.0" stroke="BLACK" strokeType="INSIDE" width="896.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7799999713897705" green="0.2914111614227295" blue="0.15600000321865082" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8421052694320679" green="0.46975958347320557" blue="0.07173489034175873" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="4.0" layoutY="14.0" text="===============Sistemi i Arketarit================" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <TextField fx:id="prdduktEmer" layoutX="34.0" layoutY="400.0" />
+      <TextField fx:id="produktSasia" layoutX="222.0" layoutY="400.0" />
+      <Label layoutX="34.0" layoutY="356.0" prefHeight="43.0" prefWidth="156.0" text="Emri i produktit:" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="222.0" layoutY="356.0" prefHeight="43.0" prefWidth="60.0" text="Sasia:" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="ShtoListe" layoutX="390.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleShtoNeListe" prefHeight="26.0" prefWidth="98.0" text="Shto ne Liste" textFill="#590404">
+         <effect>
+            <Lighting diffuseConstant="1.33" specularConstant="0.0">
+               <bumpInput>
+                  <ColorAdjust brightness="-0.56" contrast="1.0" hue="0.84" saturation="0.59" />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.3499999940395355" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="34.0" layoutY="455.0" prefHeight="43.0" prefWidth="156.0" text="Totali:" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="faturaTotale" layoutX="37.0" layoutY="485.0" />
+      <Button fx:id="txtTotali" layoutX="198.0" layoutY="485.0" mnemonicParsing="false" onAction="#llogaritTotali" prefHeight="26.0" prefWidth="98.0" text="Printo Totalin" textFill="#590404">
+         <effect>
+            <Lighting diffuseConstant="1.33" specularConstant="0.0">
+               <bumpInput>
+                  <ColorAdjust brightness="-0.56" contrast="1.0" hue="0.84" saturation="0.59" />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.3499999940395355" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="txtPastro" layoutX="309.0" layoutY="484.0" mnemonicParsing="false" onAction="#handlePastro" prefHeight="26.0" prefWidth="98.0" text="Pastro" textFill="#590404">
+         <effect>
+            <Lighting diffuseConstant="1.33" specularConstant="0.0">
+               <bumpInput>
+                  <ColorAdjust brightness="-0.56" contrast="1.0" hue="0.84" saturation="0.59" />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.3499999940395355" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="Fatura" layoutX="11.0" layoutY="156.0" prefHeight="200.0" prefWidth="421.0">
+        <columns>
+          <TableColumn fx:id="Emri" prefWidth="158.39999675750732" text="Emri" />
+          <TableColumn fx:id="Sasia" prefWidth="130.3999786376953" text="Sasia" />
+            <TableColumn fx:id="Cmimi" prefWidth="132.0" text="Cmimi" />
+        </columns>
+      </TableView>
+      <Label layoutX="184.0" layoutY="112.0" text="Fatura" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <TableView fx:id="ListeProduktesh" layoutX="545.0" layoutY="156.0" prefHeight="200.0" prefWidth="321.0">
+         <columns>
+            <TableColumn fx:id="ListeEmri" prefWidth="192.80010986328125" text="Emri" />
+            <TableColumn fx:id="ListeCmimi" prefWidth="126.39990234375" text="Cmimi" />
+         </columns>
+      </TableView>
+      <Label layoutX="597.0" layoutY="104.0" text="Lisat e produkteve" textFill="#fffcfc">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Button fx:id="ktheuLogIn" layoutX="740.0" layoutY="562.0" mnemonicParsing="false" onAction="#ktheuLogIn" prefHeight="26.0" prefWidth="126.0" text="Kthehu tek Log In" textFill="#590404">
+         <effect>
+            <Lighting diffuseConstant="1.33" specularConstant="0.0">
+               <bumpInput>
+                  <ColorAdjust brightness="-0.56" contrast="1.0" hue="0.84" saturation="0.59" />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.3499999940395355" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
